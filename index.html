@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -386,6 +387,42 @@ header .logo, .site-header .logo, .logo-link {
 .actions {
   position: relative !important;
   z-index: 100 !important;
+}
+</style>
+
+
+<style id="nadayoji-view-details-final-fix">
+/* FINAL VIEW DETAILS FIX — keep the modal as a real viewport overlay. */
+#modal.modal{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  z-index:2147483000 !important;
+  display:none !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:auto !important;
+  padding:20px !important;
+  box-sizing:border-box !important;
+}
+#modal.modal.open{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+#modal.modal .modal-box{
+  position:relative !important;
+  z-index:2147483001 !important;
+  max-height:90vh !important;
+  overflow:auto !important;
+  margin:auto !important;
+}
+#modal.modal .close{
+  position:absolute !important;
+  top:7px !important;
+  right:12px !important;
+  z-index:2147483002 !important;
 }
 </style>
 
