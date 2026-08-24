@@ -219,21 +219,54 @@ async function startCamera(){
 async function takePhoto(){
  if(!stream)return;
  snap.disabled=true;setStatus("[ GET READY... ]");count.style.display="flex";
- for(let n=3;n>=1;n--){count.textContent=n;await wait(700)}count.style.display="none";
- const w=video.videoWidth||1280,h=video.videoHeight||960;
- photoCanvas.width=w;photoCanvas.height=h;
- syncCameraRatio();const c=photoCanvas.getContext("2d");
+ for(let n=3;n>=1;n--){count.textContent=n;await wait(700)}
+ count.style.display="none";
+
+ // Capture exactly the visible preview area, not the raw camera frame.
+ const vw=video.videoWidth||1280, vh=video.videoHeight||960;
+ const rect=video.getBoundingClientRect();
+ const cw=video.clientWidth||rect.width, ch=video.clientHeight||rect.height;
+
+ // Map the displayed video viewport back to intrinsic pixels.
+ // Since the video uses object-fit: contain, determine the actual displayed
+ // image rectangle and crop only that rectangle.
+ const scale=Math.min(cw/vw,ch/vh);
+ const shownW=vw*scale, shownH=vh*scale;
+ const offsetX=(cw-shownW)/2, offsetY=(ch-shownH)/2;
+
+ const sx=Math.max(0,Math.round((-offsetX)/scale));
+ const sy=Math.max(0,Math.round((-offsetY)/scale));
+ const sw=Math.min(vw-sx,Math.round(cw/scale));
+ const sh=Math.min(vh-sy,Math.round(ch/scale));
+
+ photoCanvas.width=sw;photoCanvas.height=sh;
+ const c=photoCanvas.getContext("2d");
+
+ // Mirror exactly like the selfie preview.
  c.save();
- // The preview and saved selfie use the same mirrored framing.
- c.translate(w,0);c.scale(-1,1);
- c.drawImage(video,0,0,w,h);
+ c.translate(sw,0);c.scale(-1,1);
+ c.drawImage(video,sx,sy,sw,sh,0,0,sw,sh);
  c.restore();
+
  photoCanvas.toBlob(blob=>{
-  const u=URL.createObjectURL(blob);captured.src=u;receiptPhoto.src=u;
-  video.style.display="none";captured.style.display="block";retake.disabled=false;
-  const now=new Date(),d=now.toLocaleDateString("en-US",{month:"2-digit",day:"2-digit",year:"numeric"}).replaceAll("/","."),t=now.toLocaleTimeString("en-US",{hour:"2-digit",minute:"2-digit"});
-  $("rDate").textContent=d;$("rTime").textContent=t;$("rNo").textContent="NC"+now.getFullYear().toString().slice(-2)+String(now.getMonth()+1).padStart(2,"0")+String(now.getDate()).padStart(2,"0")+String(now.getHours()).padStart(2,"0")+String(now.getMinutes()).padStart(2,"0");
-  setStatus("[ RECEIPT READY ♡ SAVE IT FOR FUN PRINT ]");buildReceipt(blob);
+  const u=URL.createObjectURL(blob);
+  captured.src=u;receiptPhoto.src=u;
+  video.style.display="none";captured.style.display="block";
+  retake.disabled=false;
+
+  const now=new Date();
+  const d=now.toLocaleDateString("en-US",{month:"2-digit",day:"2-digit",year:"numeric"}).replaceAll("/",".");
+  const t=now.toLocaleTimeString("en-US",{hour:"2-digit",minute:"2-digit"});
+  $("rDate").textContent=d;
+  $("rTime").textContent=t;
+  $("rNo").textContent="NC"+now.getFullYear().toString().slice(-2)+
+    String(now.getMonth()+1).padStart(2,"0")+
+    String(now.getDate()).padStart(2,"0")+
+    String(now.getHours()).padStart(2,"0")+
+    String(now.getMinutes()).padStart(2,"0");
+
+  setStatus("[ PHOTO READY ♡ SAVE IT FOR FUN PRINT ]");
+  buildReceipt(blob);
  },"image/jpeg",.95);
 }
 
