@@ -26,7 +26,7 @@ radial-gradient(circle at 50% 38%,rgba(255,60,180,.17),transparent 35%),
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
 .panel{border:1px solid #542044;background:rgba(8,6,8,.75);padding:14px;box-shadow:0 0 25px rgba(255,60,180,.08)}
 .camera{aspect-ratio:var(--camera-ratio,4/3);background:#000;border:2px solid var(--pink);position:relative;overflow:hidden}
-video,.captured{width:100%;height:100%;object-fit:cover;display:block}
+video,.captured{width:100%;height:100%;object-fit:contain;display:block;background:#000}
 .captured{display:none;object-fit:contain;background:#000}
 .scan{position:absolute;inset:12px;border:1px solid rgba(255,130,210,.4);pointer-events:none}
 .scan:before,.scan:after{content:"";position:absolute;width:28px;height:28px;border-color:#ff6fc2}
@@ -191,6 +191,12 @@ async function startCamera(){
   syncCameraRatio();
   video.onloadedmetadata=syncCameraRatio;
   video.onresize=syncCameraRatio;
+  // Match the visible camera frame to the exact intrinsic video dimensions.
+  const track=stream.getVideoTracks()[0];
+  const settings=track ? track.getSettings() : {};
+  const sw=settings.width||video.videoWidth;
+  const sh=settings.height||video.videoHeight;
+  if(sw && sh) document.querySelector(".camera").style.aspectRatio = `${sw}/${sh}`;
   video.style.display="block";captured.style.display="none";
   snap.disabled=false;retake.disabled=true;save.disabled=true;share.disabled=true;
   start.textContent="[ CAMERA READY ]";setStatus("[ LOOK AT THE SCREEN • TAP SNAP ♡ ]");
