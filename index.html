@@ -20,7 +20,7 @@ a{color:inherit}header{position:sticky;top:0;z-index:500;background:rgba(14,14,1
 .products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.product{background:var(--card);border:1px solid #393939;transition:.25s;overflow:hidden}.product:hover{border-color:var(--pink);transform:translateY(-5px);box-shadow:0 0 30px rgba(255,79,163,.1)}.product-image{height:290px;background:#252525;position:relative;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:cover}.stock{position:absolute;top:12px;left:12px;z-index:2;background:#0d0d0d;border:1px solid var(--pink);color:var(--pink);padding:5px 8px;font-size:8px;letter-spacing:1px}.product-label{position:absolute;right:12px;bottom:12px;background:rgba(13,13,13,.85);color:#ddd;padding:5px 8px;font-size:8px}.info{padding:20px}.info h3{font-size:17px;margin-bottom:5px}.condition{font-size:10px;color:#777}.price{font-size:22px;color:var(--pink);font-weight:700;margin:12px 0}.details{list-style:none;color:#aaa;font-size:10px;line-height:1.9;margin-bottom:17px}.details li:before{content:"// ";color:var(--pink)}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.small{padding:11px 5px;border:1px solid #555;background:#292929;color:#fff;text-align:center;text-decoration:none;font:700 9px "Space Mono";cursor:pointer}.small:hover{border-color:var(--pink);color:var(--pink)}.message-btn{border-color:var(--pink);background:rgba(255,79,163,.12);color:#fff}.message-btn:hover{background:var(--pink);color:#fff;box-shadow:0 0 18px rgba(255,79,163,.35)}
 .listing-note{border-top:1px solid #333;padding:13px 20px 18px;background:#1b1b1b;color:#999;font-size:9px;line-height:1.75}.listing-note strong{color:var(--pink);letter-spacing:1px}.inclusions{margin-top:8px;color:#bbb}.inclusions strong{color:#fff}.empty{display:none;grid-column:1/-1;text-align:center;padding:40px;color:#777}
 .dark{background:#151515;border-top:1px solid #292929;border-bottom:1px solid #292929}.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;max-width:1000px;margin:30px auto 0}.info-card{background:#1c1c1c;border:1px solid #363636;padding:22px}.info-card h3{color:var(--pink);font-size:12px;margin-bottom:9px}.info-card p{color:#999;font-size:10px;line-height:1.9}.rules{max-width:900px;margin:0 auto;display:grid;gap:10px}.rule{border:1px solid #353535;background:#191919;padding:18px 20px;display:flex;gap:14px}.rule b{color:var(--pink);font-size:12px;min-width:22px}.rule p{font-size:10px;color:#aaa;line-height:1.9}.notice{max-width:900px;margin:30px auto 0;border:1px solid #555;background:#1b1b1b;padding:20px}.notice h3{color:#fff;font-size:12px;margin-bottom:8px}.notice p{color:#888;font-size:10px;line-height:1.9}.about{text-align:center;max-width:760px;margin:auto}.about p{color:#999;font-size:11px;line-height:2}.contact{text-align:center}.contact p{color:#888;font-size:11px;margin:8px auto 22px}footer{border-top:1px solid #333;padding:28px 20px;text-align:center;color:#666;font-size:9px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:300;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal-box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#1d1d1d;border:1px solid var(--pink);padding:26px;position:relative}.close{position:absolute;right:12px;top:7px;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}.modal-box h2{font-size:21px}.modal-price{color:var(--pink);font-size:22px;font-weight:700;margin:12px 0}.modal-box p{font-size:10px;color:#aaa;line-height:1.9}.modal-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}.modal-gallery img{width:100%;height:105px;object-fit:cover;border:1px solid #333;cursor:pointer}.modal-main{width:100%;height:390px;object-fit:contain;background:#111;border:1px solid #333;margin-bottom:8px}.modal-list{list-style:none;color:#aaa;font-size:10px;line-height:1.9;margin:10px 0}.modal-list li:before{content:"// ";color:var(--pink)}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:5000;align-items:center;justify-content:center;padding:20px;touch-action:auto}.modal.open{display:flex}.modal-box{width:min(760px,100%);max-height:90vh;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;background:#1d1d1d;border:1px solid var(--pink);padding:26px;position:relative}.close{position:absolute;right:10px;top:8px;z-index:20;background:#1d1d1d;border:1px solid #555;color:#fff;font-size:25px;line-height:1;width:38px;height:38px;cursor:pointer;display:flex;align-items:center;justify-content:center;touch-action:manipulation}.modal-box h2{font-size:21px}.modal-price{color:var(--pink);font-size:22px;font-weight:700;margin:12px 0}.modal-box p{font-size:10px;color:#aaa;line-height:1.9}.modal-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}.modal-gallery img{width:100%;height:105px;object-fit:cover;border:1px solid #333;cursor:pointer}.modal-main{width:100%;height:390px;object-fit:contain;background:#111;border:1px solid #333;margin-bottom:8px}.modal-list{list-style:none;color:#aaa;font-size:10px;line-height:1.9;margin:10px 0}.modal-list li:before{content:"// ";color:var(--pink)}
 .top{display:none;position:fixed;right:18px;bottom:18px;z-index:150;background:var(--pink);border:0;color:#fff;width:40px;height:40px;cursor:pointer}
 @media(max-width:900px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){header{padding:9px 4%}.brand span{display:inline}.logo-mini{width:44px;height:39px}.logo-mini{height:39px}nav{gap:9px}nav a{font-size:8px}.hero{min-height:70vh}.section{padding:58px 5%}.controls{display:grid;grid-template-columns:1fr}.products{grid-template-columns:1fr}.product-image{height:330px}.actions{grid-template-columns:1fr}.modal-main{height:300px}.modal-gallery{grid-template-columns:repeat(3,1fr)}.modal-gallery img{height:80px}}
 
@@ -417,11 +417,11 @@ window.openCameraDetails = function(btn) {
     if(gallery){ gallery.innerHTML=files.map(function(file){ var safe=file.replace(/"/g,'&quot;'); return '<img src="'+srcFor(file)+'" alt="Camera photo" data-detail-image="'+safe+'">'; }).join(''); }
     var amount=document.getElementById('modalCurrencyAmount');
     if(amount) amount.value=(btn.getAttribute('data-price')||'').replace(/[^0-9.]/g,'');
-    modal.classList.add('open'); modal.removeAttribute('hidden'); modal.style.display='flex'; document.body.style.overflow='hidden';
+    modal.classList.add('open'); modal.removeAttribute('hidden'); modal.style.display='flex'; modal.setAttribute('aria-hidden','false'); modal.setAttribute('role','dialog'); modal.setAttribute('aria-modal','true'); window.__nadayojiModalTrigger = btn;
     return false;
   } catch(e){ console.error('Nadayoji View Details error:',e); return false; }
 };
-window.closeCameraDetails=function(){var modal=document.getElementById('modal'); if(!modal)return; modal.classList.remove('open'); modal.setAttribute('hidden',''); modal.style.display='none'; document.body.style.overflow='';};
+window.closeCameraDetails=function(){var modal=document.getElementById('modal'); if(!modal)return; modal.classList.remove('open'); modal.setAttribute('hidden',''); modal.style.display='none'; modal.setAttribute('aria-hidden','true'); var trigger=window.__nadayojiModalTrigger; window.__nadayojiModalTrigger=null; if(trigger&&typeof trigger.focus==='function') trigger.focus();};
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.details-btn'); if(b){e.preventDefault();e.stopPropagation();window.openCameraDetails(b);}},true);
 document.addEventListener('click',function(e){var img=e.target.closest&&e.target.closest('#modalGallery [data-detail-image]'); if(img){var main=document.getElementById('modalMain'); if(main) main.src=img.src;}},false);
 </script>
@@ -695,21 +695,11 @@ document.addEventListener('click',function(e){var img=e.target.closest&&e.target
     const cards = Array.from(document.querySelectorAll('.product'));
     const empty = document.getElementById('empty');
 
-    const modal = document.getElementById('modal');
-    const modalMain = document.getElementById('modalMain');
-    const modalGallery = document.getElementById('modalGallery');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalPrice = document.getElementById('modalPrice');
-    const modalCondition = document.getElementById('modalCondition');
-    const modalSpecs = document.getElementById('modalSpecs');
-    const close = document.getElementById('close');
-
     function filterProducts() {
       if (!search || !condition) return;
       const q = search.value.toLowerCase().trim();
       const c = condition.value;
       let n = 0;
-
       cards.forEach(function (card) {
         const name = (card.dataset.name || '').toLowerCase();
         const cardCondition = card.dataset.condition || '';
@@ -717,98 +707,13 @@ document.addEventListener('click',function(e){var img=e.target.closest&&e.target
         card.style.display = ok ? 'block' : 'none';
         if (ok) n++;
       });
-
       if (empty) empty.style.display = n ? 'none' : 'block';
     }
 
     if (search) search.addEventListener('input', filterProducts);
     if (condition) condition.addEventListener('change', filterProducts);
-
-    window.openCameraDetails = function (button) {
-      if (!button || !modal) return false;
-
-      const imgs = (button.dataset.gallery || '')
-        .split(',')
-        .map(function (s) { return s.trim(); })
-        .filter(Boolean);
-
-      if (modalTitle) modalTitle.textContent = button.dataset.product || 'Camera';
-      if (modalPrice) modalPrice.textContent = button.dataset.price || '';
-      if (modalCondition) {
-        modalCondition.textContent = 'Condition: ' + (button.dataset.condition || '');
-      }
-
-      if (modalSpecs) {
-        modalSpecs.innerHTML = (button.dataset.specs || '')
-          .split(' • ')
-          .filter(Boolean)
-          .map(function (s) { return '<li>' + s + '</li>'; })
-          .join('');
-      }
-
-      if (modalMain) {
-        if (imgs.length) {
-          modalMain.src = 'images/' + imgs[0];
-          modalMain.style.display = 'block';
-        } else {
-          modalMain.removeAttribute('src');
-        }
-      }
-
-      if (modalGallery) {
-        modalGallery.innerHTML = imgs.map(function (file) {
-          return '<img src="images/' + file +
-            '" alt="Camera photo" data-modal-image="' + file + '">';
-        }).join('');
-      }
-
-      const amount = document.getElementById('modalCurrencyAmount');
-      if (amount) {
-        amount.value = (button.dataset.price || '').replace(/[^0-9.]/g, '');
-      }
-
-      modal.classList.add('open');
-      modal.removeAttribute('hidden');
-      document.body.style.overflow = 'hidden';
-
-      if (typeof bindConverters === 'function') {
-        bindConverters(modal);
-      }
-
-      return false;
-    };
-
-    function closeModal() {
-      if (!modal) return;
-      modal.classList.remove('open');
-      modal.setAttribute('hidden', '');
-      document.body.style.overflow = '';
-    }
-
-    if (close) close.addEventListener('click', closeModal);
-
-    if (modal) {
-      modal.addEventListener('click', function (event) {
-        if (event.target === modal) closeModal();
-      });
-    }
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') closeModal();
-    });
-
-    if (modalGallery) {
-      modalGallery.addEventListener('click', function (event) {
-        const img = event.target.closest('[data-modal-image]');
-        if (img && modalMain) {
-          modalMain.src = 'images/' + img.dataset.modalImage;
-        }
-      });
-    }
-
     filterProducts();
   }
-
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initNadayojiShop);
   } else {
